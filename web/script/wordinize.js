@@ -10,7 +10,7 @@ $(function () {
     var CLASS_EDITABLE = "editable";
     var CLASS_EDIT = "edit";
     var CLASS_RESET = "reset";
-    var CLASS_REMOVE = "remove";
+    var CLASS_REMOVE = "split";
 
     var WORDS = $(".word");
 
@@ -93,10 +93,8 @@ $(function () {
 
     var setRemoveLogic = function (el) {
         el.find("." + CLASS_REMOVE).toggleClass(CLASS_REMOVE).toggleClass(CLASS_RESET).click(function () {
-            /*            el.find("." + CLASS_RESET).toggleClass(CLASS_REMOVE).toggleClass(CLASS_RESET).click(function () {
-             alert("Removing");
-             el.remove();
-             });*/
+            el.find("." + CLASS_RESET).toggleClass(CLASS_REMOVE).toggleClass(CLASS_RESET);
+
             var oldWrapper = el.parent();
             DRAG_ZONE.append(el);
             updateCounter(oldWrapper);

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+		<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">  
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+
+		<title>Wordanize</title>
+		
+		<script src="scripts/xls.js"></script>
+		<script src="scripts/jszip.js"></script>
+		<script src="scripts/xlsx.js"></script>
+		
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="script/wordinize.js"></script>
+
+		<script>
+		</script>
+		
+	</head>
+	
+	<body>		
+			<header><h1>Wordanize</h1></header>
+			<div class="listcontrols left">
+				<a href="">Deleted(<span>5</span>)</a>
+				<a href="">Splitted(<span>5</span>)</a>
+				<a href="">Grouped (<span>5</span>)</a>
+				<a class="active" href="">Words (<span>200</span>)</a>
+				
+			</div>
+			<div class="listcontrols right"><a href="">Expand all</a></div>
+			
+			<div class="listcontainer left" id="dragzone">			
+				<div class="word placeholder"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Keps</p><div class="remove"></div></div>
+				
+				
+				
+				<div class="word"><p>Sylvester</p><div class="remove"></div></div>
+				
+				
+				
+				<div class="word"><p>Björnfitta</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa this is a very long word that I hope will break when it gets to long </p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+				<div class="word"><p>Mössa</p><div class="remove"></div></div>
+			</div>
+			
+			<div class="listcontainer right" id="dropzone">	
+				<div id="explanation">Drag words here to create a new group</div>
+				
+				<div class="group placeholder">Hattar <div class="counter">2</div></div>
+				<div class="group">Hattar</div>
+
+				<div class="group expanded">
+						<p class="editable">Hattar</p>
+						<div class="expand"><span class="counter">3</span></div>
+						<div class="edit">
+							<textarea class="field single-line" type="text">Hattar</textarea>
+						</div>
+						<div class="word placeholder"><p>Sylvester</p> <div class="reset"></div></div>
+						<div class="word"><p>Mössa</p> <div class="reset"></div></div>
+				</div>
+				
+				<div class="group expanded"><p class="editable">Hattar</p><div class="expand"><span class="counter">3</span></div><div class="edit"><textarea class="field single-line" type="text">Hattar</textarea></div>
+						<div class="word placeholder"><p>Sylvester</p> <div class="reset"></div></div>
+						<div class="word"><p>Mössa</p> <div class="reset"></div></div>
+				</div>
+
+			</div>
+			
+			
+	</body>
+</html>

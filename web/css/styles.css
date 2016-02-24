@@ -1,0 +1,89 @@
+html {width: 100%; height: 100%;}
+
+body {width: 100%; height: 100%; font-family: arial; font-size: 0.625em; background-repeat: no-repeat; background-position: top center;
+background: #6db3f2; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM2ZGIzZjIiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWU2OWRlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-radial-gradient(center, ellipse cover,  #6db3f2 0%, #1e69de 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#6db3f2), color-stop(100%,#1e69de)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #6db3f2 0%,#1e69de 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #6db3f2 0%,#1e69de 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #6db3f2 0%,#1e69de 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #6db3f2 0%,#1e69de 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6db3f2', endColorstr='#1e69de',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+}
+
+header {text-align: center; padding: 20px 0 0 0; width: 100%;}
+header h1 {font-size: 2em; display: inline-block; font-weight: bold; color: #fff;}
+
+.listcontainer { position: absolute; top: 110px; bottom: 0; padding: 20px; box-sizing: border-box;}
+.listcontainer.left  {left: 0; width: 20%; overflow-x: hidden; white-space:nowrap;}
+.listcontainer.right {left: 20%; width: 80%;}
+
+#explanation {position: absolute; z-index: -1; font-size: 5em; color: rgba(255,255,255,0.3); top: 30%; left: 10%; width: 80%; text-align: center; border-width: 5px; border-style: dashed; border-color: rgba(255,255,255,0.3); padding: 50px 20px}
+
+.listcontrols {padding: 20px; position: absolute; box-sizing: border-box; top: 0;}
+.listcontrols  h2{float: left; color: #fff; font-size: 2em;}
+.listcontrols  a{ color: #fff; font-size: 1.5em; margin-right: 10px; opacity: 0.5;}
+.listcontrols  a.active{opacity: 1;}
+
+
+.listcontrols.left  {left: 0; width: 20%;}
+.listcontrols.right {left: 20%; width: 80%;}
+
+
+.word p, .group p, .remove, .reset {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */
+	user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+	cursor:pointer;
+}
+
+.word, .group {border-radius: 10px; background-color: rgba(0,0,0,0.8); font-size: 2em; color: #fff; padding: 10px; float: left; margin: 10px;}
+.word p, .group p {float: left; margin-right: 30px;}
+.word {clear: right; float: right;}
+.word {position: relative;}
+.word.placeholder, .group.placeholder, .groupcontainer .word.placeholder {color: rgba(255,255,255,1); background-color: transparent; border-width: 2px; border-style: dashed; border-color: rgba(255,255,255,1); opacity: 0.3;}
+
+.group .word{display: none; border-radius: 5px; background-color: rgba(255,255,255,1); font-size: 0.7em; color: #000; padding: 5px; float: left; margin: 10px 0 0 0; clear: left; width: 100%; box-sizing: border-box;}
+.group.expanded .word {display: block;}
+.group .word p{margin-right: 0px; }
+.group .reset {right: 5px; top: 3px;}
+.placeholder .remove, .placeholder .counter, .placeholder .reset {visibility: hidden;}
+.remove { font-size: 15px; font-weight: bold; background-color: #ef580d; color: #fff; border-radius: 50%; width: 20px; height: 20px; position: absolute; right: 10px; padding: 0; box-sizing: border-box; text-align: center; margin-left: 10px;}
+.remove:before {content: "x";}
+.reset {font-size: 15px; font-weight: bold; background-color: #FF9900; color: #fff; border-radius: 50%; width: 20px; height: 20px; position: absolute; right: 10px; padding: 0; box-sizing: border-box; text-align: center; margin-left: 10px;}
+.reset:before {content: "<";}
+
+/* .counter {font-size: 0.7em; font-weight: bold; background-color: rgba(255,255,255,1); color: #000; border-radius: 50%; width: 20px; height: 20px; float: right; padding: 2px; box-sizing: border-box; text-align: center; margin-left: 10px;}
+*/
+
+.expand {cursor: pointer; font-size: 0.7em; font-weight: bold; background-color: rgba(255,255,255,1); color: #000; border-radius: 50%; width: 20px; height: 20px; float: right; padding: 2px; box-sizing: border-box; text-align: center; margin-left: 10px;}
+.expand:hover span {display: none;}
+.expand:hover:before {content: "+";}
+.expanded .expand:hover:before {content: "-";}
+#content {width: 90%; color: #fff; max-width: 600px; margin: 0 auto 60px;}
+
+.edit {
+ float: left; display: none; margin: 0; padding: 0;
+}
+
+.field {
+	background-color: rgba(255,255,255,1); resize: none; border-radius: 5px; line-height: 18px; font-size: 15px; padding: 7px; box-sizing: border-box; overflow: hidden;
+}
+
+.field.single-line {
+	height: 30px;
+}
+
+.cnt-form .field:first-child{margin-top: 20px;}
+.cnt-form .field {position: relative; margin:  0 0 20px 0;}
+.cnt-form .prefix {position: absolute; font-size: 2em; color: #555; top: 50px; right: 20px;}
+.cnt-form label {color: #fff; font-size: 2em; margin-bottom: 10px; float: left;}
+.cnt-form input { width: 100%; height: 50px; box-sizing: border-box; padding: 5px 12px; color: #555; font-size: 2em; border-color: #eee; border-width: 1px; border-style: solid; border-radius: 10px;}
+
+h2 {font-size: 2em; color: #fff;}

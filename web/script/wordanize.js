@@ -92,8 +92,14 @@ $(function () {
 
 
     var setRemoveLogic = function (el) {
-        el.find("." + CLASS_REMOVE).toggleClass(CLASS_REMOVE).toggleClass(CLASS_RESET).click(function () {
-            el.find("." + CLASS_RESET).toggleClass(CLASS_REMOVE).toggleClass(CLASS_RESET);
+        var removeEl = el.find("." + CLASS_REMOVE);
+        removeEl.unbind("click");
+        removeEl.toggleClass(CLASS_REMOVE);
+        removeEl.toggleClass(CLASS_RESET)
+        removeEl.click(function () {
+            var resetEl = el.find("." + CLASS_RESET);
+            resetEl.toggleClass(CLASS_REMOVE)
+            resetEl.toggleClass(CLASS_RESET);
 
             var oldWrapper = el.parent();
             DRAG_ZONE.append(el);

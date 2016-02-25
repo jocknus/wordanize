@@ -19,6 +19,8 @@ $(function () {
         });
     });
 
+
+
     var createSplitter = function (elWord) {
         var splitter = $(HTML_SPLITTER);
         splitter.insertAfter(elWord);
@@ -79,9 +81,11 @@ $(function () {
         splitter.find("." + CLASS_BUTTON_SPLIT).click(function(){
             $.each(splitter.find(".newword"),function(index,el){
                 var word = $(HTML_WORD);
-                //TODO Insert corret values from new created words
+                word.find("p").text($(el).find("p").text());
                 word.insertAfter(elWord);
+
             });
+            splitter.remove();
             elWord.remove();
         });
 

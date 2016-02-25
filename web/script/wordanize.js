@@ -45,6 +45,10 @@ window.Grouper = (function () {
                 if (e.which == 13) {
                     wrapper.find("." + CLASS_EDITABLE).show();
                     wrapper.find("." + CLASS_EDIT).hide();
+
+                    if ($(this).val() == "hasselhoff") {
+                        wrapper.toggleClass("hasselhoff");
+                    }
                     updateName(wrapper, $(this).val());
                     return false;
                 }

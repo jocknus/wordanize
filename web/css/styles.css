@@ -1,7 +1,6 @@
 html {width: 100%; height: 100%;}
 
 body {width: 100%; height: 100%; font-family: arial; font-size: 0.625em; background-repeat: no-repeat; background-position: top center;
-
 background-color: #222;
 }
 
@@ -103,3 +102,132 @@ display: none;
 .cnt-form input { width: 100%; height: 50px; box-sizing: border-box; padding: 5px 12px; color: #555; font-size: 2em; border-color: #eee; border-width: 1px; border-style: solid; border-radius: 10px;}
 
 h2 {font-size: 2em; color: #fff;}
+
+
+.hasselhoff {background-color: red; }
+.hasselhoff .expand {background-image: url("../img/hasselhoff.png"); width:216px; height: 220px; position:absolute; background-color: rgba(255,255,255,0); border-radius: 0; z-index: 10; top: -150px; left: 0;}
+.hasselhoff .counter {display: none; }
+
+.rotate {
+	-webkit-transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        transform: rotateZ(-30deg);
+}
+
+
+.hasselhoff .expand  {
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+.hasselhoff .expand  {
+    -webkit-animation-name: badge-swing;
+    -moz-animation-name: badge-swing;
+    -ms-animation-name: badge-swing;
+    animation-name: badge-swing
+}
+
+.hasselhoff .expand {
+    transform-origin: bottom center;
+    -webkit-transform-origin: bottom center;
+    -moz-transform-origin: bottom center;
+    -ms-transform-origin: bottom center;
+    animation: badge-swing 1s infinite;
+    -webkit-animation: badge-swing 1s infinite;
+    -moz-animation: badge-swing 1s infinite;
+    -ms-animation: badge-swing 1s infinite
+}
+
+@keyframes badge-swing {
+    0% {
+        transform: rotate(-5deg);
+        animation-timing-function: ease-in
+    }
+    25% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out
+    }
+    50% {
+        transform: rotate(5deg);
+        animation-timing-function: ease-in
+    }
+    75% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out
+    }
+    100% {
+        transform: rotate(-5deg);
+        animation-timing-function: ease-in
+    }
+}
+@-webkit-keyframes badge-swing {
+    0% {
+        -webkit-transform: rotate(-5deg);
+        -webkit-animation-timing-function: ease-in
+    }
+    25% {
+        -webkit-transform: rotate(0deg);
+        -webkit-animation-timing-function: ease-out
+    }
+    50% {
+        -webkit-transform: rotate(5deg);
+        -webkit-animation-timing-function: ease-in
+    }
+    75% {
+        -webkit-transform: rotate(0deg);
+        -webkit-animation-timing-function: ease-out
+    }
+    100% {
+        -webkit-transform: rotate(-5deg);
+        -webkit-animation-timing-function: ease-in
+    }
+}
+@-moz-keyframes badge-swing {
+    0% {
+        -moz-transform: rotate(-5deg);
+        -moz-animation-timing-function: ease-in
+    }
+    25% {
+        -moz-transform: rotate(0deg);
+        -moz-animation-timing-function: ease-out
+    }
+    50% {
+        -moz-transform: rotate(5deg);
+        -moz-animation-timing-function: ease-in
+    }
+    75% {
+        -moz-transform: rotate(0deg);
+        -moz-animation-timing-function: ease-out
+    }
+    100% {
+        -moz-transform: rotate(-5deg);
+        -moz-animation-timing-function: ease-in
+    }
+}
+@-ms-keyframes badge-swing {
+    0% {
+        -ms-transform: rotate(-5deg);
+        -ms-animation-timing-function: ease-in
+    }
+    25% {
+        -ms-transform: rotate(0deg);
+        -ms-animation-timing-function: ease-out
+    }
+    50% {
+        -ms-transform: rotate(5deg);
+        -ms-animation-timing-function: ease-in
+    }
+    75% {
+        -ms-transform: rotate(0deg);
+        -ms-animation-timing-function: ease-out
+    }
+    100% {
+        -ms-transform: rotate(-5deg);
+        -ms-animation-timing-function: ease-in
+    }
+}

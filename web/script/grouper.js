@@ -77,6 +77,7 @@ window.Grouper = (function () {
         removeEl.toggleClass(CLASS_RESET)
         removeEl.click(function () {
             var resetEl = el.find("." + CLASS_RESET);
+            resetEl.unbind("click");
             resetEl.toggleClass(CLASS_REMOVE)
             resetEl.toggleClass(CLASS_RESET);
             $(el).find("." + CLASS_REMOVE).click(function () {

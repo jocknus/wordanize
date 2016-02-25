@@ -1,7 +1,4 @@
-$(function () {
-
-    var DRAG_ZONE = $("#dragzone");
-    var DROP_ZONE = $("#dropzone");
+window.Grouper = (function () {
 
 
     var CLASS_COUNTER = "counter";
@@ -12,21 +9,10 @@ $(function () {
     var CLASS_RESET = "reset";
     var CLASS_REMOVE = "split";
 
-    var WORDS = $(".word");
 
     var GROUP_HTML = '<div class="group expanded"><p class="editable">Hattar</p>' +
         '<div class="expand"><span class="counter">1</span></div><div class="edit">' +
         '<textarea class="field single-line" type="text">Hattar</textarea></div></div>';
-
-
-    createDraggables(WORDS);
-
-    DROP_ZONE.droppable({
-        drop: function (event, ui) {
-
-            handleWrapping(ui.draggable);
-        }
-    });
 
 
     var handleWrapping = function (elTarget) {
@@ -41,7 +27,7 @@ $(function () {
             setRemoveLogic(elTarget);
 
             wrapper.append(elTarget);
-            DROP_ZONE.append(wrapper);
+            $("#dropzone").append(wrapper);
 
 
             wrapper.find("." + CLASS_EXPAND).click(function () {
@@ -71,6 +57,8 @@ $(function () {
                     setRemoveLogic(ui.draggable);
                 }
             });
+
+
             updateCounter(oldWrapper);
             shouldMaybeRemoveWrapper(oldWrapper)
 
@@ -89,7 +77,7 @@ $(function () {
             resetEl.toggleClass(CLASS_RESET);
 
             var oldWrapper = el.parent();
-            DRAG_ZONE.append(el);
+            $("#dragzone").append(el);
             updateCounter(oldWrapper);
             shouldMaybeRemoveWrapper(oldWrapper)
         });
@@ -110,7 +98,7 @@ $(function () {
     };
 
     var updateCounter = function (wrapper) {
-        wrapper.find("." + CLASS_COUNTER).text(wrapper.find(WORDS).length);
+        wrapper.find("." + CLASS_COUNTER).text(wrapper.find($(".word")).length);
     };
 
     var updateName = function (wrapper, text) {
@@ -118,8 +106,8 @@ $(function () {
     };
 
     var shouldMaybeRemoveWrapper = function (oldWrapper) {
-        if (!oldWrapper.is(DRAG_ZONE)) {
-            if (oldWrapper.find(WORDS).length == 0) {
+        if (!oldWrapper.is($("#dragzone"))) {
+            if (oldWrapper.find($(".word")).length == 0) {
                 oldWrapper.remove();
             }
         }
@@ -127,7 +115,7 @@ $(function () {
     };
 
     var shouldCreateNewWrapper = function (elTarget) {
-        if (elTarget.parent().is(DRAG_ZONE)) {
+        if (elTarget.parent().is($("#dragzone"))) {
             return true;
         }
 
@@ -138,7 +126,13 @@ $(function () {
         return false;
     };
 
-});
+    return {
+        createGroup: function (el) {
+            handleWrapping(el);
+        }
+    };
+
+})();
 
 
 

@@ -1,3 +1,18 @@
+$(function () {
+
+    var DROP_ZONE = $("#dropzone");
+    var WORDS = $(".word");
+
+
+    DROP_ZONE.droppable({
+        drop: function (event, ui) {
+            window.Grouper.createGroup(ui.draggable);
+        }
+    });
+
+    createDraggables(WORDS);
+});
+
 var createDraggables = function (elements) {
     var CLASS_PLACE_HOLDER = "placeholder";
     var CLASS_SPLIT = "split";
@@ -22,4 +37,6 @@ var createDraggables = function (elements) {
 
         });
     });
-};
+}
+
+

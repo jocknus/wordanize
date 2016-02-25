@@ -85,7 +85,7 @@ window.Splitter = (function () {
 
     return {
         createSplitter: function (el) {
-           createSplitter(el);
+            createSplitter(el);
         }
     };
 })();

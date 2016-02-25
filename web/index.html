@@ -13,18 +13,26 @@
 
 		<title>Wordanize</title>
 		
-		<script src="scripts/xls.js"></script>
-		<script src="scripts/jszip.js"></script>
-		<script src="scripts/xlsx.js"></script>
 		
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/styles.css" />
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script src="script/wordanize.js"></script>
-        <script src="script/word-splitter.js"></script>
-        <script src="script/main.js"></script>
+       
+
+		<script src="script/wordanize.js"></script>
+		<script src="script/main.js"></script>
+		<script src="script/word-splitter.js"></script>
+		<script src="script/uploadfile.js"></script>
+		<script src="script/savefile.js"></script>
+	   
+		<script src="script/lib/xlsx.js"></script>
+		<script src="script/lib/jszip.js"></script>
+		<script src="script/lib/jszip-load.js"></script>
+		<script src="script/lib/jszip-inflate.js"></script>
+		<script src="script/lib/jszip-deflate.js"></script>
+
 
 		<script>
 		</script>
@@ -32,34 +40,39 @@
 	</head>
 	
 	<body>		
-			<header><h1>Wordanize</h1></header>
+			<header><h1>Wordanize - Oh yeah yeah</h1></header>
 			<div class="listcontrols left">
-				<a href="">Deleted(<span>5</span>)</a>
-				<a href="">Splitted(<span>5</span>)</a>
-				<a href="">Grouped (<span>5</span>)</a>
-				<a class="active" href="">Words (<span>200</span>)</a>
-				
+				<div id="uploadform">
+					<label for="filePicker">Choose or drag a file:</label><br>
+					<input type="file" id="filePicker">			
+				</div>
+				<div id="savefile">
+					<a id="save" href="">Save your file</a>
+				</div>
 			</div>
-			<div class="listcontrols right"><a href="">Expand all</a></div>
+			<div class="listcontrols right"></div>
 			
 			<div class="listcontainer left" id="dragzone">
+			
+			<!--
 					<div class="word placeholder"><p>Mössa</p><div class="split"></div></div>
 					<div class="word"><p>Keps</p><div class="split"></div></div>
 					<div class="word"><p>Sylvester</p><div class="split"></div></div>
 					<div class="word"><p>Björnfitta</p><div class="split"></div></div>
-					<div class="word"><p>Fez</p><div class="split"></div></div>
+					<div class="word"><p>Fez, Björnfitta, Sylvester</p><div class="split"></div></div>
 					
 					<div class="splitword">
-						<p>Original word</p>
+						<p>Fez, Björnfitta, Sylvester</p>
+						
 						<div class="newword">	
-							<div class="editable"><p>Word 1</p><div class="remove"></div></div>
-							
+							<div class="editable"><p>Enter your word</p><div class="remove"></div></div>
 							<div class="edit">
 								<textarea class="field single-line" type="text">Word 1</textarea>
 							</div>
 						</div>
+						
 						<a class="button-add">+ Add new word</a>
-						<a class="button-split">Split</a><a class="button-cancel">Cancel</a>						
+						<a class="button-split">OK</a><a class="button-cancel">Cancel</a>						
 					</div>
 					
 					<div class="word"><p>Cykelhjälm</p><div class="split"></div></div>
@@ -77,11 +90,13 @@
 					<div class="word"><p>Barett</p><div class="split"></div></div>
 					<div class="word"><p>Hätta</p><div class="split"></div></div>
 					<div class="word"><p>Rånarluva</p><div class="split"></div></div>
+					-->
 			</div>
 			
 			<div class="listcontainer right" id="dropzone">	
 				<div id="explanation">Drag words here to create a new group</div>
 				
+				<!--
 				<div class="group expanded">
 						<p class="editable">Example</p>
 						<div class="expand"><span class="counter">2</span></div>
@@ -91,10 +106,10 @@
 						<div class="word placeholder"><p>Item 1 (placeholder)</p> <div class="reset"></div></div>
 						<div class="word"><p>Item 2</p> <div class="reset"></div></div>
 				</div>
+				-->
 				
 
 			</div>
-			
 			
 	</body>
 </html>

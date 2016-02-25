@@ -3,7 +3,7 @@ $(function () {
     var DRAG_ZONE = $("#dragzone");
     var DROP_ZONE = $("#dropzone");
 
-    var CLASS_PLACE_HOLDER = "placeholder";
+
     var CLASS_COUNTER = "counter";
     var CLASS_EXPANDED = "expanded";
     var CLASS_EXPAND = "expand";
@@ -19,20 +19,7 @@ $(function () {
         '<textarea class="field single-line" type="text">Hattar</textarea></div></div>';
 
 
-    WORDS.draggable({
-        start: function (event, ui) {
-            $(this).addClass(CLASS_PLACE_HOLDER);
-        },
-        drag: function (event, ui) {
-        },
-        stop: function (event, ui) {
-            $(this).removeClass(CLASS_PLACE_HOLDER);
-        },
-        appendTo: "body",
-        revert: "invalid",
-        helper: "clone",
-        cursor: "move"
-    });
+    createDraggables(WORDS);
 
     DROP_ZONE.droppable({
         drop: function (event, ui) {
@@ -152,5 +139,8 @@ $(function () {
     };
 
 });
+
+
+
 
 

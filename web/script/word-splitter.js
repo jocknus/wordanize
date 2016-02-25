@@ -1,4 +1,4 @@
-$(function () {
+window.Splitter = (function () {
 
     var WORDS = $(".word");
     var CLASS_SPLIT = "split";
@@ -11,15 +11,6 @@ $(function () {
     var HTML_NEW_WORD = "<div class=\"newword\"><div class=\"editable\"><p>Word 1</p><div class=\"remove\"></div></div><div class=\"edit\"><textarea class=\"field single-line\" type=\"text\">Word 1</textarea></div></div>";
 
     var HTML_WORD = "<div class=\"word\"><p>Fez</p><div class=\"split\"></div></div>";
-
-    $.each(WORDS, function (index, el) {
-        $(el).find("." + CLASS_SPLIT).click(function () {
-            createSplitter($(el));
-
-        });
-    });
-
-
 
     var createSplitter = function (elWord) {
         var splitter = $(HTML_SPLITTER);
@@ -36,7 +27,7 @@ $(function () {
                 splitter.find("." + CLASS_EDITABLE).find("p").text($(this).val());
                 splitter.find("." + CLASS_EDITABLE).show();
                 splitter.find("." + CLASS_EDIT).hide();
-                splitter.find("." + CLASS_EDITABLE).click(function(){
+                splitter.find("." + CLASS_EDITABLE).click(function () {
                     splitter.find("." + CLASS_EDITABLE).hide();
                     splitter.find("." + CLASS_EDIT).show();
                     splitter.find("textarea").select();
@@ -48,7 +39,7 @@ $(function () {
         });
 
 
-        splitter.find("." + CLASS_BUTTON_ADD).click(function(){
+        splitter.find("." + CLASS_BUTTON_ADD).click(function () {
 
             var newWord = $(HTML_NEW_WORD);
             newWord.insertAfter(splitter.find(".newword").last());
@@ -61,7 +52,7 @@ $(function () {
                     newWord.find("." + CLASS_EDITABLE).find("p").text($(this).val());
                     newWord.find("." + CLASS_EDITABLE).show();
                     newWord.find("." + CLASS_EDIT).hide();
-                    newWord.find("." + CLASS_EDITABLE).click(function(){
+                    newWord.find("." + CLASS_EDITABLE).click(function () {
                         newWord.find("." + CLASS_EDITABLE).hide();
                         newWord.find("." + CLASS_EDIT).show();
                         newWord.find("textarea").select();
@@ -73,16 +64,17 @@ $(function () {
             });
         });
 
-        splitter.find("." + CLASS_BUTTON_CANCEL).click(function(){
+        splitter.find("." + CLASS_BUTTON_CANCEL).click(function () {
             splitter.remove();
             elWord.toggle();
         });
 
-        splitter.find("." + CLASS_BUTTON_SPLIT).click(function(){
-            $.each(splitter.find(".newword"),function(index,el){
+        splitter.find("." + CLASS_BUTTON_SPLIT).click(function () {
+            $.each(splitter.find(".newword"), function (index, el) {
                 var word = $(HTML_WORD);
                 word.find("p").text($(el).find("p").text());
                 word.insertAfter(elWord);
+                createDraggables(word);
 
             });
             splitter.remove();
@@ -90,4 +82,10 @@ $(function () {
         });
 
     };
-});
+
+    return {
+        createSplitter: function (el) {
+           createSplitter(el);
+        }
+    };
+})();

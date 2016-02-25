@@ -75,7 +75,10 @@ window.Grouper = (function () {
             var resetEl = el.find("." + CLASS_RESET);
             resetEl.toggleClass(CLASS_REMOVE)
             resetEl.toggleClass(CLASS_RESET);
+            $(el).find("." + CLASS_REMOVE).click(function () {
+                Splitter.createSplitter($(el));
 
+            });
             var oldWrapper = el.parent();
             $("#dragzone").append(el);
             updateCounter(oldWrapper);

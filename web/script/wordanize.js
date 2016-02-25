@@ -92,6 +92,7 @@ window.Grouper = (function () {
         var oldWrapper = elTarget.parent();
         elTargetWrapper.append(elTarget);
         updateCounter(elTargetWrapper);
+        updateCounter(oldWrapper);
 
         shouldMaybeRemoveWrapper(oldWrapper)
     };
